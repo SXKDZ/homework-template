@@ -64,7 +64,7 @@ This repository establishes a LaTeX template for homework.
 
 ### Downloads
 
-- Click [here](https://github.com/SXKDZ/tongjithesis/releases) to download
+- Click [here](releases) to download
 
 ### Licence
 
@@ -134,7 +134,7 @@ Apache 2.0
 
 ### 下载
 
-- 点击[这里](https://github.com/SXKDZ/tongjithesis/releases)下载
+- 点击[这里](releases)下载
 
 ### 开源协议
 
