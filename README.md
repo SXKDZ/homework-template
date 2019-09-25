@@ -23,7 +23,7 @@ This repository establishes a LaTeX template for homework.
 
 * ```latex
   \begin{problem}[optional problem subtitle]
-  		problem description here.
+  	problem description here.
   \end{problem}
   ```
 
@@ -33,7 +33,7 @@ This repository establishes a LaTeX template for homework.
 
   ```latex
   \begin{answer}
-  		answer here.
+  	answer here.
   \end{answer}
   ```
 
@@ -64,7 +64,7 @@ This repository establishes a LaTeX template for homework.
 
 ### Downloads
 
-- Click [here](releases) to download
+- Click [here](https://github.com/SXKDZ/homework-template/releases) to download
 
 ### Licence
 
@@ -93,7 +93,7 @@ Apache 2.0
 
 - ```latex
   \begin{problem}[可选问题副标题]
-  		问题描述
+  	问题描述
   \end{problem}
   ```
 
@@ -103,7 +103,7 @@ Apache 2.0
 
   ```latex
   \begin{answer}
-  		答案写在这里
+  	答案写在这里
   \end{answer}
   ```
 
@@ -134,7 +134,7 @@ Apache 2.0
 
 ### 下载
 
-- 点击[这里](releases)下载
+- 点击[这里](https://github.com/SXKDZ/homework-template/releases)下载
 
 ### 开源协议
 
