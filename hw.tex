@@ -1,0 +1,76 @@
+\documentclass{hw}
+
+\newcolumntype{L}{D{.}{.}{2,2}}
+
+\course
+{LaTeX Practice}
+{Fall 2019}
+{Local University}
+
+\assignment
+{Assignment 1}
+{Get Ready for LaTeX}
+
+\student
+{Student Name}
+{2019000000}
+{Student Affliation}
+{name.student@mail.com}
+
+\begin{document}
+	
+\newproblemset{problem}{Problem}{Problems}
+\newproblemset{computerexercise}{Computer Exercise}{Computer Exercises}
+
+\maketitle
+
+\makeproblem
+
+\begin{problem*}[Description Goes Here]
+Consider the following decision rule for a two-category one-dimensional problem: 
+Decide \(\omega_1\) if \(x > \theta\); otherwise decide \(\omega_2\).
+(a) Show the probability of error for this rule is given by
+\[
+P(\text{error}) = P\left(\omega_{1}\right) \int_{-\infty}^{\theta} p\left(x | \omega_{1}\right) \mathrm{d}x+P\left(\omega_{2}\right) \int_{\theta}^{\infty} p\left(x | \omega_{2}\right) \mathrm{d}x.
+\]
+(b) By differentiating, show that a necessary condition to minimize \(P(\text{error})\) is that satisfy
+\[
+p(\theta | \omega_1) P(\omega_1) = p(\theta | \omega_2) P(\omega_2).
+\]
+(c) Does this equation define \(\theta\) uniquely?
+(d) Give an example where a value of \(\theta\) satisfying the equation actually maximizes the probability of error.
+\end{problem*}
+
+\begin{answer}
+答案写在此处。
+\end{answer}
+
+\begin{problem}[标题]
+在一个10类的模式识别问题中，有3类单独满足多类情况1，其余的类别满足多类情况2。问该模式识别问题所需判别函数的最少数目是多少？
+\end{problem}
+
+\begin{answer}
+答案写在此处。
+\end{answer}
+
+\makecomputerexercise
+
+此处可以插入一些说明。
+
+Several of the computer exercises will rely on the following data.
+
+\begin{computerexercise}
+Illustrate the fact that the average of a large number of independent random variables will approximate a Gaussian by the following:
+(a) Write a program to generate n random integers from a uniform distribution \(U(x_l, x_u)\).
+
+(b) Now write a routine to choose \(x_l\) and \(x_u\) randomly, in the range \(-100 \leq x_l < x_u \leq 100\), and \(n\) (the number of samples) randomly in the range \(0 < n \leq 1000\).
+(c) Generate and plot a histogram of the accumulation of \(10^4\) points sampled as just described.
+(d) Calculate the mean and standard deviation of your histogram, and plot it.
+(e) Repeat the above for \(10^5\) and for \(10^6\). Discuss your results.
+\end{computerexercise}
+
+\begin{answer}
+答案写在此处。
+\end{answer}
+
+\end{document}
