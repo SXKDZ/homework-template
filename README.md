@@ -1,6 +1,6 @@
 # Homework Template
 
-## $\LaTeX{}$ Template for Homework
+## LaTeX Template for Homework
 
 This repository establishes a LaTeX template for homework.
 
@@ -27,8 +27,10 @@ This repository establishes a LaTeX template for homework.
   \end{problem}
   ```
 
-  Replacing `problem` with `problem*` gives title without auto numbering.
+  Note that equations within `problem` will be numbered in the format of `Px.y`, where `P` is the first character of `Problem`, `x` is the number of problem, `y` is the number of equation.
 
+  Replacing `problem` with `problem*` gives title without auto numbering and equations with plain format (only the number of equation).
+  
 * `answer` environment:
 
   ```latex
@@ -36,6 +38,8 @@ This repository establishes a LaTeX template for homework.
   	answer here.
   \end{answer}
   ```
+
+  Similarly, using `answer*` corresponding to `problem*` environment gives equations with plain format.
 
 * Other metadata necessary for homework:
 
@@ -70,7 +74,7 @@ This repository establishes a LaTeX template for homework.
 
 Apache 2.0
 
-## $\LaTeX{}$作业模板
+## LaTeX作业模板
 
 本仓库为LaTeX作业模板。
 
@@ -97,7 +101,7 @@ Apache 2.0
   \end{problem}
   ```
 
-  将`problem`替换为`problem*`得到不自动编号的版本。
+  注意：`problem`环境中的公式将被自动编号为`Px.y`，其中`P`是`Problem`的首字母，`x`是问题的序号，`y`是公式的序号。将`problem`替换为`problem*`得到不自动编号标题的版本，且公式将使用普通格式（仅含公式的序号）。
 
 - `answer`环境：
 
@@ -106,6 +110,8 @@ Apache 2.0
   	答案写在这里
   \end{answer}
   ```
+
+  类似地，对`problem*`使用`answer*`环境。
 
 - 用下列命令定义作业的其他定义元数据：
 

@@ -1,6 +1,6 @@
 \NeedsTeXFormat{LaTeX2e}[2007/10/19]
-\ProvidesClass{hw}[2019/09/25 v0.0.1 The LaTeX template for homework]
-\typeout{Document Class `hw' v0.0.1 by SXKDZ (2019/09/25)}
+\ProvidesClass{hw}[2019/09/26 v0.0.2 The LaTeX template for homework]
+\typeout{Document Class `hw' v0.0.2 by SXKDZ (2019/09/26)}
 
 \LoadClass[zihao=5,scheme=plain,linespread=1.2,a4paper,oneside]{ctexart}
 
@@ -84,7 +84,7 @@
 \pagestyle{fancy}
 \fancyhf{}
 \lhead{\hw@assignmentnumber}
-\chead{\hw@coursetitle~(\hw@semester)}
+\chead{\textit{\hw@coursetitle~(\hw@semester)}}
 \rhead{\hw@university}
 \renewcommand{\headrulewidth}{0.75pt}
 
@@ -93,22 +93,33 @@
 
 \RequirePackage{multirow,dcolumn,float}
 
+\RequirePackage{stringstrings}
+
 \newcommand{\newproblemset}[3]{
 	\newcounter{#1}[section]
-	\@namedef{make#1}{\section*{#3}}
+	\@namedef{make#1}{\section*{#3}\renewcommand{\theequation}{\substring{#2}{1}{1}\arabic{#1}.\arabic{equation}}}
 
 	\newenvironment{#1}[1][\empty]{
 		\refstepcounter{#1}
-	
+		\setcounter{equation}{0}
+		
 		\ifx\empty##1\subsection*{#2 \csname the#1\endcsname}\else\subsection*{#2 \csname the#1\endcsname: ##1}\fi
 		\kaiti}{}
 
 	\newenvironment{#1*}[1][\empty]{	
-		\ifx\empty##1\subsection*{#2}\else\subsection*{#2: ##1}\fi
+		\setcounter{equation}{0}
+			\renewcommand{\theequation}{\arabic{equation}}
+			\ifx\empty##1\subsection*{#2}\else\subsection*{#2: ##1}\fi
 		\kaiti}{}
 }
 
 \newenvironment{answer}{
+	\vspace*{2mm}
+	\noindent
+	\textit{Answer:}\enskip}{}
+
+\newenvironment{answer*}{
+	\renewcommand{\theequation}{\arabic{equation}}
 	\vspace*{2mm}
 	\noindent
 	\textit{Answer:}\enskip}{}
@@ -125,7 +136,7 @@
 			\vbox{
 				\vspace{2mm}
 				
-				\makebox[0pt][l]{\quad \hw@coursetitle~(\hw@semester)}%
+				\makebox[0pt][l]{\quad \textit{\hw@coursetitle~(\hw@semester)}}%
 				\hfill
 				\makebox[0pt][r]{\today \quad}
 

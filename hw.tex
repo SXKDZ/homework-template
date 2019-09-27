@@ -1,7 +1,5 @@
 \documentclass{hw}
 
-\newcolumntype{L}{D{.}{.}{2,2}}
-
 \course
 {LaTeX Practice}
 {Fall 2019}
@@ -26,7 +24,16 @@
 
 \makeproblem
 
-\begin{problem*}[Description Goes Here]
+\begin{problem*}[无标号问题]
+在一个10类的模式识别问题中，有3类单独满足多类情况1，其余的类别满足多类情况2。问该模式识别问题所需判别函数的最少数目是多少？
+\end{problem*}
+
+\begin{answer*}
+答案写在此处。
+\end{answer*}
+
+\begin{problem}
+
 Consider the following decision rule for a two-category one-dimensional problem: 
 Decide \(\omega_1\) if \(x > \theta\); otherwise decide \(\omega_2\).
 (a) Show the probability of error for this rule is given by
@@ -39,25 +46,34 @@ p(\theta | \omega_1) P(\omega_1) = p(\theta | \omega_2) P(\omega_2).
 \]
 (c) Does this equation define \(\theta\) uniquely?
 (d) Give an example where a value of \(\theta\) satisfying the equation actually maximizes the probability of error.
-\end{problem*}
 
-\begin{answer}
-答案写在此处。
-\end{answer}
-
-\begin{problem}[标题]
-在一个10类的模式识别问题中，有3类单独满足多类情况1，其余的类别满足多类情况2。问该模式识别问题所需判别函数的最少数目是多少？
 \end{problem}
 
 \begin{answer}
-答案写在此处。
+考虑分类错误率的条件概率：
+\begin{equation}
+	P(\text{error} | x) =
+	\begin{cases}
+		p(\omega_1 | x), & \text{if we decide }\omega_2, \\
+		p(\omega_2 | x), & \text{otherwise.}
+	\end{cases}
+	\label{eq:error-conditional-probability}
+\end{equation}
+
+根据式 (\ref{eq:error-conditional-probability}) 对\(x\)进行积分，可得：
+\begin{align}
+	P(\text{error}) & = \int_{-\infty}^\infty P(\text{error} | x) p(x) \mathrm{d} x \\
+	& = P(x \leq \theta , x \text{ is } \omega_1 ) + P(x > \theta , x \text{ is } \omega_2 ) \\
+	& = p(x \leq \theta | \omega_1) P(\omega_1) + p(x > \theta | \omega_2) P(\omega_2) \\
+	& = P\left(\omega_{1}\right) \int_{-\infty}^{\theta} p\left(x | \omega_{1}\right) \mathrm{d} x + P\left(\omega_{2}\right) \int_{\theta}^{\infty} p\left(x | \omega_{2}\right) \mathrm{d} x. \label{eq:error-probability}
+\end{align}
 \end{answer}
 
 \makecomputerexercise
 
-此处可以插入一些说明。
-
 Several of the computer exercises will rely on the following data.
+
+此处还可以插入一些说明。
 
 \begin{computerexercise}
 Illustrate the fact that the average of a large number of independent random variables will approximate a Gaussian by the following:
@@ -70,7 +86,20 @@ Illustrate the fact that the average of a large number of independent random var
 \end{computerexercise}
 
 \begin{answer}
-答案写在此处。
+答案写在此处，如代码~\ref{lst:python}~所示。
+
+\begin{lstlisting}[language=python,caption=代码测试,label=lst:python]
+print('Hello, world!')
+\end{lstlisting}
+
+为了得到\(p(x | \omega) \sim \mathcal{N}(0, 1)\)：
+\begin{equation}
+	p(x | \omega_i) = \frac{1}{\sqrt{2 \pi} \sigma}\exp{\left[- \frac{1}{2} \left(\frac{x - \mu}{\sigma}\right)^2\right]}
+	\label{eq:Gaussian-distribution}
+\end{equation}
+
+对式 (\ref{eq:Gaussian-distribution})，我们可以进行一些计算。
+
 \end{answer}
 
 \end{document}
