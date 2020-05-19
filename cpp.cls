@@ -2,7 +2,7 @@
 \ProvidesClass{cpp}[2020/05/19 v0.0.1 The LaTeX template for Chinese papers]
 \typeout{Document Class `cpp' v0.0.1 by SXKDZ (2020/05/19)}
 
-\LoadClass[11pt,linespread=1.3,a4paper,oneside]{ctexart}
+\LoadClass[11pt,linespread=1.3,a4paper,twoside]{ctexart}
 
 \ctexset{punct=banjiao}
 
@@ -22,7 +22,7 @@
 \newcommand{\cuheiti}{\CJKfamily{cuhei}}
 \newcommand{\songheiti}{\CJKfamily{songhei}}
 
-\RequirePackage[top=30mm,bottom=25mm,left=30mm,right=30mm]{geometry}
+\RequirePackage[top=30mm,bottom=30mm,left=30mm,right=30mm]{geometry}
 
 \RequirePackage[xetex,unicode]{hyperref}
 \hypersetup{colorlinks}
@@ -39,6 +39,32 @@
 \DeclareMathOperator*{\argmin}{argmin}
 \DeclareMathOperator*{\argmax}{argmax}
 \def\tagform@#1{\maketag@@@{（\ignorespaces#1\unskip\@@italiccorr）}}
+
+\RequirePackage{accents}
+% left arrow over text
+\DeclareRobustCommand{\cev}[1]{%
+	\mathpalette\do@cev{#1}%
+}
+\newcommand{\do@cev}[2]{%
+	\fix@cev{#1}{+}%
+	\reflectbox{$\m@th#1\vec{\reflectbox{$\fix@cev{#1}{-}\m@th#1#2\fix@cev{#1}{+}$}}$}%
+	\fix@cev{#1}{-}%
+}
+\newcommand{\fix@cev}[2]{%
+	\ifx#1\displaystyle
+		\mkern#23mu
+	\else
+		\ifx#1\textstyle
+			\mkern#23mu
+		\else
+			\ifx#1\scriptstyle
+				\mkern#22mu
+			\else
+				\mkern#22mu
+			\fi
+		\fi
+	\fi
+}
 
 \RequirePackage[authoryear,compress]{natbib}
 
@@ -122,19 +148,25 @@
 \renewcommand\Authsep{\quad}
 \renewcommand\Authand{\quad}
 \renewcommand\Authands{\quad}
+%\renewcommand\Authfont{\kaiti}
+\renewcommand\Affilfont{\kaiti}
+\setlength{\affilsep}{0.5em}
 
 \def\@email{}
+\def\@subtitle{}
 \newcommand{\email}[1]{\renewcommand{\@email}{#1}}
+\newcommand{\subtitle}[1]{\renewcommand{\@subtitle}{#1}}
 
 \newcommand{\oldmaketitle}{\maketitle}
 \renewcommand{\maketitle}{
 	\begin{center}
 		\vspace*{1.5\baselineskip}
-		{\LARGE\textbf{\noindent\ignorespaces\@title}\par}
+		{\huge\cuheiti{\noindent\ignorespaces\@title}\par}
+		\ifx\@subtitle\empty{}\else{\vskip .5em{\Large\textbf{\noindent\ignorespaces\@subtitle}\par}}\fi
 		\vskip 1.5em
 		\ifnum\value{authors}=0{}\else{{\noindent\ignorespaces\@author\par}}\fi
 		\ifx\@email\empty{}\else{\noindent\ignorespaces\mailto\@email\par}\fi
 	\end{center}
-	\vskip 1.5em
+	\vskip 2em
 	\thispagestyle{empty}
 }
